@@ -1,0 +1,407 @@
+{
+  "metadata": {
+    "spec-version": "1.5"
+  },
+  "display-name": "Offline Image Extractor",
+  "configuration-groups": [
+    {
+      "label": "Basic",
+      "properties": [
+        {
+          "name": "serviceFilePath",
+          "label": "Service Account File Path",
+          "widget-type": "textbox",
+          "widget-attributes": {
+            "default": "auto-detect"
+          }
+        },
+        {
+          "name": "project",
+          "label": "Project ID",
+          "widget-type": "textbox",
+          "widget-attributes": {
+            "default": "auto-detect"
+          },
+          "plugin-function": {
+            "label": "Browse",
+            "widget": "connection-browser",
+            "widget-attributes": {
+              "connectionType": "GCS"
+            }
+          }
+        },
+        {
+          "name": "sourcePath",
+          "label": "Source Path",
+          "widget-type": "text"
+        },
+        {
+          "name": "destinationPath",
+          "label": "Destination Path",
+          "widget-type": "text"
+        },
+        {
+          "name": "features",
+          "label": "Features",
+          "widget-type": "select",
+          "widget-attributes": {
+            "default": "Face",
+            "values": [
+              "Crop Hints",
+              "Face",
+              "Image Properties",
+              "Labels",
+              "Landmarks",
+              "Logos",
+              "Object Localization",
+              "Text",
+              "Explicit Content",
+              "Web Detection"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Advanced",
+      "properties": [
+        {
+          "name": "batchSize",
+          "label": "Batch Size",
+          "widget-type": "text",
+          "widget-attributes": {
+            "default": "20"
+          }
+        },
+        {
+          "name":"languageHints",
+          "label": "Language Hints",
+          "widget-type":"multi-select",
+          "widget-attributes":{
+            "delimiter":",",
+            "options":[
+              {
+                "label":"Afrikaans",
+                "id":"af"
+              },
+              {
+                "label":"Albanian",
+                "id":"sq"
+              },
+              {
+                "label":"Arabic",
+                "id":"ar"
+              },
+              {
+                "label":"Armenian",
+                "id":"hy"
+              },
+              {
+                "label":"Belorussian",
+                "id":"be"
+              },
+              {
+                "label":"Bengali",
+                "id":"bn"
+              },
+              {
+                "label":"Bulgarian",
+                "id":"bg"
+              },
+              {
+                "label":"Catalan",
+                "id":"ca"
+              },
+              {
+                "label":"Chinese",
+                "id":"zh"
+              },
+              {
+                "label":"Croatian",
+                "id":"hr"
+              },
+              {
+                "label":"Czech",
+                "id":"cs"
+              },
+              {
+                "label":"Danish",
+                "id":"da"
+              },
+              {
+                "label":"Dutch",
+                "id":"nl"
+              },
+              {
+                "label":"English",
+                "id":"en"
+              },
+              {
+                "label":"Estonian",
+                "id":"et"
+              },
+              {
+                "label":"Filipino",
+                "id":"fil"
+              },
+              {
+                "label":"Finnish",
+                "id":"fi"
+              },
+              {
+                "label":"French",
+                "id":"fr"
+              },
+              {
+                "label":"German",
+                "id":"de"
+              },
+              {
+                "label":"Greek",
+                "id":"el"
+              },
+              {
+                "label":"Gujarati",
+                "id":"gu"
+              },
+              {
+                "label":"Hebrew",
+                "id":"iw"
+              },
+              {
+                "label":"Hungarian",
+                "id":"hu"
+              },
+              {
+                "label":"Icelandic",
+                "id":"is"
+              },
+              {
+                "label":"Indonesian",
+                "id":"id"
+              },
+              {
+                "label":"Italian",
+                "id":"it"
+              },
+              {
+                "label":"Japanese",
+                "id":"ja"
+              },
+              {
+                "label":"Kannada",
+                "id":"kn"
+              },
+              {
+                "label":"Khmer",
+                "id":"km"
+              },
+              {
+                "label":"Korean",
+                "id":"ko"
+              },
+              {
+                "label":"Lao",
+                "id":"lo"
+              },
+              {
+                "label":"Latvian",
+                "id":"lv"
+              },
+              {
+                "label":"Lithuanian",
+                "id":"lt"
+              },
+              {
+                "label":"Macedonian",
+                "id":"mk"
+              },
+              {
+                "label":"Malay",
+                "id":"ms"
+              },
+              {
+                "label":"Malayalam",
+                "id":"ml"
+              },
+              {
+                "label":"Marathi",
+                "id":"mr"
+              },
+              {
+                "label":"Nepali",
+                "id":"ne"
+              },
+              {
+                "label":"Norwegian",
+                "id":"no"
+              },
+              {
+                "label":"Persian",
+                "id":"fa"
+              },
+              {
+                "label":"Polish",
+                "id":"pl"
+              },
+              {
+                "label":"Portuguese",
+                "id":"pt"
+              },
+              {
+                "label":"Punjabi",
+                "id":"pa"
+              },
+              {
+                "label":"Romanian",
+                "id":"ro"
+              },
+              {
+                "label":"Russian",
+                "id":"ru"
+              },
+              {
+                "label":"RussianOld Orthography}",
+                "id":"ru-PETR1708"
+              },
+              {
+                "label":"Serbian",
+                "id":"sr"
+              },
+              {
+                "label":"SerbianLatin}",
+                "id":"sr-Latn"
+              },
+              {
+                "label":"Slovak",
+                "id":"sk"
+              },
+              {
+                "label":"Slovenian",
+                "id":"sl"
+              },
+              {
+                "label":"Spanish",
+                "id":"es"
+              },
+              {
+                "label":"Swedish",
+                "id":"sv"
+              },
+              {
+                "label":"Tamil",
+                "id":"ta"
+              },
+              {
+                "label":"Telugu",
+                "id":"te"
+              },
+              {
+                "label":"Thai",
+                "id":"th"
+              },
+              {
+                "label":"Turkish",
+                "id":"tr"
+              },
+              {
+                "label":"Ukrainian",
+                "id":"uk"
+              },
+              {
+                "label":"Vietnamese",
+                "id":"vi"
+              },
+              {
+                "label":"Ylabeldish",
+                "id":"yi"
+              }
+            ]
+          }
+        },
+        {
+          "name": "aspectRatios",
+          "label": "Aspect Ratios",
+          "widget-type": "csv",
+          "widget-attributes": {}
+        },
+        {
+          "name": "includeGeoResults",
+          "label": "Include Geo Results",
+          "widget-type": "toggle",
+          "widget-attributes": {
+            "on": {
+              "value": "on",
+              "label": "On"
+            },
+            "off": {
+              "value": "off",
+              "label": "Off"
+            },
+            "default": "on"
+          }
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "condition": {
+        "property": "features",
+        "operator": "equal to",
+        "value": "Text"
+      },
+      "show": [
+        {
+          "type": "property",
+          "name": "languageHints"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "property": "features",
+        "operator": "equal to",
+        "value": "Crop Hints"
+      },
+      "show": [
+        {
+          "type": "property",
+          "name": "aspectRatios"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "property": "features",
+        "operator": "equal to",
+        "value": "Web Detection"
+      },
+      "show": [
+        {
+          "type": "property",
+          "name": "includeGeoResults"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "schema",
+      "widget-type": "schema",
+      "widget-attributes": {
+        "schema-types": [
+          "boolean",
+          "int",
+          "long",
+          "float",
+          "double",
+          "bytes",
+          "string",
+          "map<string, string>"
+        ],
+        "schema-default-type": "string"
+      }
+    }
+  ]
+}
